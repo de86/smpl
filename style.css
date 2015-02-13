@@ -582,7 +582,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: #a04040;
+	color: #ee3030;
 }
 
 a:focus {
@@ -621,7 +621,7 @@ a:active {
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	/* box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); */
 	float: left;
 	position: absolute;
 	top: 2.5em;
@@ -809,6 +809,9 @@ a:active {
 --------------------------------------------------------------*/
 .widget {
 	margin: 0 0 1.5em;
+	width: 280px;
+	margin: 0 10px;
+	padding: 1.5em;
 }
 
 /* Make sure select elements fit in widgets. */
@@ -819,6 +822,23 @@ a:active {
 /* Search widget. */
 .widget_search .search-submit {
 	display: none;
+}
+
+.widget-tite {
+	border-bottom: 2px solid #404040;
+}
+
+@media screen and (max-width: 900px) {
+	.widget {
+		width: 300px;
+	}
+}
+
+@media screen and (max-width: 715px) {
+	.widget {
+		display: block;
+		width: 100%;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1025,7 +1045,7 @@ img {
 }
 
 .site-title a:hover {
-	color: #a04040;
+	color: #ee3030;
 }
 
 .main-navigation {
@@ -1035,20 +1055,29 @@ img {
 }
 
 .site-branding {
-	border-bottom: 2px solid #404040;
 }
 
 .site-title-container {
 	border-bottom: 2px solid #404040;
-	padding: 3em 0;
 	text-align: center;
+}
+
+.site-title-container img{
+	border-bottom: 2px solid #404040;
+}
+
+.site-description {
+	font-size: 2em;
+	font-style: italic;
+	font-weight: 700;
+	margin: 1.2em 0 1.5em 0;
 }
 
 @media screen and (max-width: 900px) {
 	
 	.site-title {
 		font-style: italic;
-		font-size: 3em;
+		font-size: 4em;
 		margin: .1em 0 .3em 0 ;
 		padding: 0;
 		float: left;
@@ -1077,4 +1106,40 @@ img {
 
 .entry-footer {
 	text-align: right;
+}
+
+.full-width-footer {
+	background-color: #404040;
+	color: #fdfdfd;
+	font-size: .8em;
+}
+
+.full-width-footer a,
+.full-width-footer ul li,
+.full-width-footer ul li a,
+.full-width-footer .widget {
+	color: #fdfdfd;
+}
+
+.full-width-footer a:hover {
+	color: #ee3030;
+}
+
+.full-width-footer ul {
+	margin-left: 0;
+	padding: 0;
+}
+
+.full-width-footer ul li {
+	margin-left: 0;
+	list-style: none;
+}
+
+.full-width-footer ul ul {
+	margin-left: 1em;
+	list-style: none;
+}
+
+.full-width-footer h1 {
+	border-bottom: 2px solid #fdfdfd;
 }

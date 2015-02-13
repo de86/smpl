@@ -20,16 +20,22 @@
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
+				$( '.site-title-container' ).css({
 					'clip': 'rect(1px, 1px, 1px, 1px)',
 					'position': 'absolute'
-				} );
+				});
+				$( '.site-branding' ).css({
+					'border-bottom': '2px solid #404040'
+				});	
 			} else {
-				$( '.site-title, .site-description' ).css( {
+				$( '.site-title-container, .site-title, .site-description' ).css( {
 					'clip': 'auto',
 					'color': to,
 					'position': 'relative'
 				} );
+				$('.site-branding').css({
+					'border-bottom': 'none'
+				}); 
 			}
 		} );
 	} );

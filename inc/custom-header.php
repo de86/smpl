@@ -25,10 +25,10 @@
 function smpl_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'smpl_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
+		'default-text-color'     => '404040',
+		'width'                  => 900,
 		'height'                 => 250,
-		'flex-height'            => true,
+		'flex-height'            => false,
 		'wp-head-callback'       => 'smpl_header_style',
 		'admin-head-callback'    => 'smpl_admin_header_style',
 		'admin-preview-callback' => 'smpl_admin_header_image',
@@ -58,16 +58,19 @@ function smpl_header_style() {
 		// Has the text been hidden?
 		if ( 'blank' == $header_text_color ) :
 	?>
-		.site-title,
-		.site-description {
+		.site-title-container {
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);
+		}
+
+		.site-branding {
+			border-bottom: 2px solid #404040;
 		}
 	<?php
 		// If the user has set a custom color for the text use that
 		else :
 	?>
-		.site-title a,
+		
 		.site-description {
 			color: #<?php echo esc_attr( $header_text_color ); ?>;
 		}
