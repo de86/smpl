@@ -110,13 +110,16 @@ add_action( 'widgets_init', 'smpl_widgets_init' );
  * Enqueue scripts and styles.
  */
 function smpl_scripts() {
-	wp_enqueue_style( 'smpl-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'smpl-jquery', get_template_directory_uri() . '/js/jquery.js', array(), '20140401', true );
 
 	wp_enqueue_style( 'smpl-style-Noto-Serif', 'http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic' );
+	
+	wp_enqueue_style( 'smpl-style-font-awesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
 
 	wp_enqueue_script( 'smpl-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	
+	wp_enqueue_style( 'smpl-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'smpl-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -156,3 +159,20 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+
+function themeslug_theme_customizer( $wp_customize ) {
+$wp_customize->add_section( 'themeslug_logo_section' , array(
+'title' => __( 'Logo', 'themeslug' ),
+'priority' => 30,
+'description' => 'Upload a logo to replace the default site name and description in the header',
+) );
+$wp_customize->add_setting( 'themeslug_logo' );
+$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_logo', array(
+'label' => __( 'Logo', 'themeslug' ),
+'section' => 'themeslug_logo_section',
+'settings' => 'themeslug_logo',
+) ) );
+}
+add_action('customize_register', 'themeslug_theme_customizer');

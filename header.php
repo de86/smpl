@@ -24,10 +24,17 @@
 		<div id="top-nav" class="top-nav">
 			<div class="site-branding clear">
 				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( 'Primary Menu', 'smpl' ); ?></button>
+				<!--<?php _e( 'Primary Menu', 'smpl' ); ?>-->
+					<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
 					<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 				</nav><!-- #site-navigation -->
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+					<div class='site-logo'>
+					<img src='<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
+					</div>
+				<?php else: ?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php endif; ?>
 			</div>
 			<div class="site-title-container">
 				<?php if ( get_header_image() ) : ?>
