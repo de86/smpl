@@ -46,7 +46,9 @@ function smpl_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
+	add_image_size('post-thumb', 900, 330, true);
+	add_image_size('index-thumb', 900, 150, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -138,7 +140,7 @@ add_action( 'wp_enqueue_scripts', 'smpl_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+/*require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -159,8 +161,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-
 
 function themeslug_theme_customizer( $wp_customize ) {
 $wp_customize->add_section( 'themeslug_logo_section' , array(
